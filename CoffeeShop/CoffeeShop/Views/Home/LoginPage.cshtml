@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "LoginPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!-- Safya Başlığı -->
+<div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+    <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+        <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">GİRİŞ</h1>
+      
+    </div>
+</div>
+
+<!-- Giriş -->
+
+
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="reservation position-relative overlay-top overlay-bottom">
+            <div class="row align-items-center">
+                <div class="col-lg-6 my-5 my-lg-0">
+                    <div class="p-5">
+                        <div class="mb-4">
+
+                            <h1 class="text-white">MadCap Coffee</h1>
+                        </div>
+
+
+                    </div>
+                </div>
+                @using (Html.BeginForm())
+                {
+                    <div class="col-lg-12">
+                        <div class="text-center p-5" style="background: rgba(51, 33, 29, .8);">
+
+                         
+                                <div class="form-group">
+                                    <input type="text" class="form-control bg-transparent border-primary p-4" name="mail" placeholder="mail"
+                                           required="required" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control bg-transparent border-primary p-4" name="password" placeholder="password"
+                                           required="required" />
+                                </div>
+
+
+
+                                <div>
+                                    <button class="btn btn-primary btn-block font-weight-bold py-3" type="submit">Giriş Yap</button>
+                                </div>
+
+
+                       
+                        </div>
+                    </div>
+                }
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+

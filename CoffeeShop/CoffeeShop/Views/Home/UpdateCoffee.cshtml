@@ -1,0 +1,95 @@
+﻿@model CoffeeShop.DB.coffees
+@{
+    ViewBag.Title = "UpdateCoffee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Sayfa Başlığı -->
+
+
+<div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+    <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+        <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Kahve Güncelleme Paneli</h1>
+
+    </div>
+</div>
+
+<!-- Kahve Güncelle -->
+
+
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="reservation position-relative overlay-top overlay-bottom">
+            <div class="row align-items-center">
+                <div class="col-lg-6 my-5 my-lg-0">
+                    <div class="p-5">
+                        <div class="mb-4">
+
+                            <h1 class="text-white">Kahve Güncelleme Paneli</h1>
+                        </div>
+
+
+                    </div>
+                </div>
+                @using (Html.BeginForm("UpdateCoffee", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="mb-5" style="width:100%">
+                        <div class="col-lg-12">
+                            <div class="text-center p-5" style="background: rgba(51, 33, 29, .8);">
+
+
+                                <input type="hidden" name="id"  value="@Model.Id"/>
+                                <div class="form-group">
+                                    <input type="text" class="form-control bg-transparent border-primary p-4" name="name" value="@Model.CofeeName" placeholder="Kahve Adı"
+                                           required="required" />
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control bg-transparent border-primary p-4" value="@Model.CofeePrice" name="price" placeholder="Fiyat"
+                                           required="required" />
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control bg-transparent border-primary p-4" value="@Model.CofeeDescription" name="description" placeholder="Açıklama"
+                                           required="required" />
+                                </div>
+
+                                <div class="form-group">
+                                    <select name="type" class="custom-select-sm">
+                                        @if (Model.CoffeeType == true)
+                                        {
+                                            <option value="1"> Soğuk Kahve </option>
+                                            <option value="0"> Sıcak Kahve </option>
+                                        }
+                                        else
+                                        {
+                                            <option value="0"> Sıcak Kahve </option>
+                                            <option value="1"> Soğuk Kahve </option>
+                                        }
+
+
+                                    </select>
+                                </div>
+
+
+
+                                <input type="file" name="image" value="" />
+
+                                <div>
+                                    <button class="btn btn-primary btn-block font-weight-bold py-3" type="submit">Kaydet</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

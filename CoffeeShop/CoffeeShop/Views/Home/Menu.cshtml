@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "Menu";
+}
+
+<script src="https://kit.fontawesome.com/614f41bbfb.js" crossorigin="anonymous"></script>
+
+<!-- Sayfa Başlığı -->
+
+<div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+    <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+        <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Menü</h1>
+        <div class="d-inline-flex mb-lg-5">
+            <p class="m-0 text-white"><a class="text-white" href="~/Home/Index">Anasayfa</a></p>
+            <p class="m-0 text-white px-2">/</p>
+            <p class="m-0 text-white">Menü</p>
+        </div>
+    </div>
+</div>
+
+<!-- Menu -->
+
+
+<div class="container-fluid pt-5">
+    <div class="container">
+        <div class="section-title">
+            <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Menü</h4>
+            <h1 class="display-4">Menümüz ve Fiyatlar</h1>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-lg-6">
+                <h1 class="mb-5">Sıcak Kahve</h1>
+                @foreach (var item in Model)
+                {
+
+                    if (item.CoffeeType == false)
+                    {
+                        using (Html.BeginForm("Menu", "Home", FormMethod.Post))
+                        {
+                            <div class="row align-items-center mb-5">
+                                <div class="col-4 col-sm-3">
+                                    <img class="w-100 rounded-circle mb-3 mb-sm-0" style="width:150px;height:100px" src="~/@item.CofeeImagePath" alt="">
+                                    <h5 class="menu-price">₺@item.CofeePrice</h5>
+                                </div>
+                                <div class="col-8 col-sm-9">
+
+                                    @item.CofeeName
+
+                                    <input type="hidden" name="id" value="@item.Id" />
+
+                                    <p class="m-0">@item.CofeeDescription</p>
+                                    <br />
+                                    @Html.DropDownList("Sayi", Enumerable.Range(1, 20).Select(x => new SelectListItem { Text = x.ToString(), Value = x.ToString() }), "Adet Seçiniz", new { @class = "form-control", style = "width:200px" })
+                                    <br />
+                                    <button class="btn btn-success btn-sm" type="submit" style="border-radius:10px"> <i class="fa-solid fa-basket-shopping"></i> Sepete Ekle </button>
+                                </div>
+                            </div>
+                        }
+                    }
+                }
+
+
+
+            </div>
+
+
+
+            <div class="col-lg-6">
+                <h1 class="mb-5">Soğuk Kahve</h1>
+
+
+
+                @foreach (var item2 in Model)
+                {
+
+                    if (item2.CoffeeType == true)
+                    {
+                        using (Html.BeginForm("Menu", "Home", FormMethod.Post))
+                        {
+                            <div class="row align-items-center mb-5" style="border-width:1px;border-color:black">
+                                <div class="col-4 col-sm-3">
+                                    <img class="w-100 rounded-circle mb-3 mb-sm-0" style="width:150px;height:100px" src="~/@item2.CofeeImagePath" alt="">
+                                    <h5 class="menu-price">₺@item2.CofeePrice</h5>
+                                </div>
+                                <div class="col-8 col-sm-9">
+
+                                    @item2.CofeeName
+
+                                    <input type="hidden" name="id2" value="@item2.Id" />
+
+
+                                    <p class="m-0">@item2.CofeeDescription</p>
+                                    <br />
+                                    @Html.DropDownList("Sayi2", Enumerable.Range(1, 20).Select(x => new SelectListItem { Text = x.ToString(), Value = x.ToString() }), "Adet Seçiniz", new { @class = "form-control", style = "width:200px" })
+                                    <br />
+                                    <button type="submit" class="btn btn-success btn-sm" style="border-radius:10px"> <i class="fa-solid fa-basket-shopping"></i> Sepete Ekle </button>
+                                </div>
+                            </div>
+                        }
+                    }
+                }
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>
+

@@ -1,0 +1,279 @@
+﻿@model List<CoffeeShop.DB.coffees>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<!-- Kaydırmalı Foto -->
+<div class="container-fluid p-0 mb-5">
+    <div id="blog-carousel" class="carousel slide overlay-bottom" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="w-100" src="~/Content/img/carousel-1.jpg" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <h2 class="text-primary font-weight-medium m-0">Kaliteli Kahveler</h2>
+                    <h1 class="display-1 text-white m-0">Burada</h1>
+                    <h2 class="text-white m-0">*2022'den beri*</h2>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="w-100" src="~/Content/img/carousel-2.jpg" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <h2 class="text-primary font-weight-medium m-0">Sıcak Ortam</h2>
+                    <h1 class="display-1 text-white m-0">Burada</h1>
+                    <h2 class="text-white m-0">*2022'den beri*</h2>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#blog-carousel" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#blog-carousel" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+</div>
+
+
+<!-- Hakkımızda -->
+
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="section-title">
+            <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Hakkımızda</h4>
+            <h1 class="display-4">2022'den beri hizmetinizdeyiz.</h1>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 py-0 py-lg-5">
+                <h1 class="mb-3">Hikayemiz</h1>
+                <h5 class="mb-3"> "Her Bir Fincan, Bir Serüvene Davet Ediyor!"</h5>
+                <p>
+                    Hoş Geldiniz! Yeni kahveci sitemizde en kaliteli kahve çekirdeklerini bulabilirsiniz. Siparişlerinizi kolayca vererek taze ve lezzetli kahveleri kapınıza getiriyoruz. Müşteri memnuniyeti bizim için önemlidir ve hızlı kargo hizmeti sunmaktayız. Ayrıca, kahve demleme ekipmanları ve özel tasarım fincanlar gibi ürünlerimizle kahve deneyiminizi tamamlayabilirsiniz. Kahve tutkusunu evinize getirmek için bizi tercih edin.
+                </p>
+
+            </div>
+            <div class="col-lg-4 py-5 py-lg-0" style="min-height: 500px;">
+                <div class="position-relative h-100">
+                    <img class="position-absolute w-100 h-100" src="~/Content/img/about.png" style="object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-lg-4 py-0 py-lg-5">
+                <h1 class="mb-3">Vizyonumuz</h1>
+                <p>
+                    Müşterilerimize en kaliteli kahve deneyimini sunarak, kahve tutkusunu yaymak ve her anınıza keyif katmak.
+                </p>
+                <h5 class="mb-3"><i class="fa fa-check text-primary mr-3"></i>Taze hazırlanan kahveler.</h5>
+                <h5 class="mb-3"><i class="fa fa-check text-primary mr-3"></i>Sıcak bir ortam.</h5>
+                <h5 class="mb-3"><i class="fa fa-check text-primary mr-3"></i>Çeşitli menülerimiz.</h5>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Servislerimiz -->
+
+
+<div class="container-fluid pt-5">
+    <div class="container">
+        <div class="section-title">
+            <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Servislerimiz</h4>
+            <h1 class="display-4"> En iyi hizmet için </h1>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 mb-5">
+                <div class="row align-items-center">
+                    <div class="col-sm-5">
+                        <img class="img-fluid mb-3 mb-sm-0" src="~/Content/img/service-1.jpg" alt="">
+                    </div>
+                    <div class="col-sm-7">
+                        <h4><i class="fa fa-truck service-icon"></i>Hızlı Teslimat</h4>
+                        <p class="m-0">
+                            "Hızlı teslimat ile siparişiniz en kısa sürede kapınıza ulaşır, taze kahvenizi keyifle demlemeniz için size eşsiz bir deneyim sunarız."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-5">
+                <div class="row align-items-center">
+                    <div class="col-sm-5">
+                        <img class="img-fluid mb-3 mb-sm-0" src="~/Content/img/service-2.jpg" alt="">
+                    </div>
+                    <div class="col-sm-7">
+                        <h4><i class="fa fa-coffee service-icon"></i>Taze Kahve Çekirdekleri</h4>
+                        <p class="m-0">
+                            "En kaliteli kahve çekirdekleriyle, her fincanda tazelik ve lezzetin izlerini keşfedin, kahve tutkusunu damaklarınızda hissedin."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-5">
+                <div class="row align-items-center">
+                    <div class="col-sm-5">
+                        <img class="img-fluid mb-3 mb-sm-0" src="~/Content/img/service-3.jpg" alt="">
+                    </div>
+                    <div class="col-sm-7">
+                        <h4><i class="fa fa-award service-icon"></i>Kaliteli Kahve</h4>
+                        <p class="m-0">
+                            "Kaliteli kahve, özenle seçilen çekirdeklerle hazırlanır, her bir yudumda zengin aroması ve enfes tatlarıyla sizi büyüler."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-5">
+                <div class="row align-items-center">
+                    <div class="col-sm-5">
+                        <img class="img-fluid mb-3 mb-sm-0" src="~/Content/img/service-4.jpg" alt="">
+                    </div>
+                    <div class="col-sm-7">
+                        <h4><i class="fa fa-table service-icon"></i>İnternet Menüsü</h4>
+                        <p class="m-0">
+
+                            "Online menümüzde geniş seçenekler arasından istediğiniz kahveyi seçebilir, lezzet dolu bir sipariş deneyimi yaşayabilirsiniz."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Kampanya -->
+
+
+
+<div class="offer container-fluid my-5 py-5 text-center position-relative overlay-top overlay-bottom">
+    <div class="container py-5">
+        <h1 class="display-3 text-primary mt-3">50% İndirim</h1>
+        <h1 class="text-white mb-3">Her Perşembe</h1>
+        <h4 class="text-white font-weight-normal mb-4 pb-3">Her Perşembe Kahvecimize Gelen Müşterilere %50 İndirim!</h4>
+
+    </div>
+</div>
+
+
+<!-- Menüler -->
+
+
+<div class="container-fluid pt-5">
+    <div class="container">
+        <div class="section-title">
+            <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Menü</h4>
+            <h1 class="display-4">Menümüz ve Fiyatlar</h1>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <h1 class="mb-5">Sıcak Kahveler</h1>
+                @{ int hotCoffeeCounter = 0; }
+                @foreach (var item in Model)
+                {
+                    hotCoffeeCounter++;
+                    if (item.CoffeeType == false && hotCoffeeCounter <= 10)
+                    {
+                        <div class="row align-items-center mb-5">
+                            <div class="col-4 col-sm-3">
+                                <img class="w-100 rounded-circle mb-3 mb-sm-0" style="width:150px;height:100px" src="~/@item.CofeeImagePath" alt="">
+                                <h5 class="menu-price"> ₺ @item.CofeePrice</h5>
+                            </div>
+                            <div class="col-8 col-sm-9">
+                                <h4>@item.CofeeName</h4>
+                                <p class="m-0">@item.CofeeDescription</p>
+                            </div>
+                        </div>
+                    }
+
+                }
+
+
+
+            </div>
+
+
+            <div class="col-lg-6">
+                <h1 class="mb-5">Soğuk Kahveler</h1>
+
+                @{ int coldCoffeeCounter = 0;}
+                @foreach (var item in Model)
+                {
+                    coldCoffeeCounter++;
+                    if (item.CoffeeType == true && coldCoffeeCounter <= 10)
+                    {
+                        <div class="row align-items-center mb-5">
+                            <div class="col-4 col-sm-3">
+                                <img class="w-100 rounded-circle mb-3 mb-sm-0" style="width:150px;height:100px" src="~/@item.CofeeImagePath" alt="">
+                                <h5 class="menu-price">₺@item.CofeePrice</h5>
+                            </div>
+                            <div class="col-8 col-sm-9">
+                                <h4>@item.CofeeName</h4>
+                                <p class="m-0">@item.CofeeDescription</p>
+                            </div>
+                        </div>
+                    }
+                }
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Müşterilerin yorumları-->
+
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="section-title">
+            <h4 class="text-primary" style="letter-spacing: 5px;">Müşterilerimizin Yorumları</h4>
+            <h1 class="display-4">Müşterilerimiz Kahvecimiz Hakkında Bunları Dedi:</h1>
+        </div>
+        <div class="owl-carousel testimonial-carousel">
+            <div class="testimonial-item">
+                <div class="d-flex align-items-center mb-3">
+                    <img class="img-fluid" src="~/Content/img/eren.jpg" alt="">
+                    <div class="ml-3">
+                        <h4>EREN kÖROĞLU</h4>
+                        <i>Developer</i>
+                    </div>
+                </div>
+                <p class="m-0"> Hayatımda gittiğim en güzel kahveci. Ortamı sıcak ve kahveler şahane. </p>
+            </div>
+            <div class="testimonial-item">
+                <div class="d-flex align-items-center mb-3">
+                    <img class="img-fluid" src="~/Content/img/yasinefe.jpg" alt="">
+                    <div class="ml-3">
+                        <h4>YASİN EFE</h4>
+                        <i>Developer</i>
+                    </div>
+                </div>
+                <p class="m-0"> Yıllardır aradığım kahve çeşitliliği bu dükkanda. </p>
+            </div>
+            <div class="testimonial-item">
+                <div class="d-flex align-items-center mb-3">
+                    <img class="img-fluid" src="~/Content/img/keremcan.jpg" alt="">
+                    <div class="ml-3">
+                        <h4> KEREM CAN PAMUK </h4>
+                        <i> Developer </i>
+                    </div>
+                </div>
+                <p class="m-0">Zor bir iş gününden sonra geldiğim tek adres.</p>
+            </div>
+            <div class="testimonial-item">
+                <div class="d-flex align-items-center mb-3">
+                    <img class="img-fluid" src="~/Content/img/batuhaneren.jpg" alt="">
+                    <div class="ml-3">
+                        <h4> BATUHAN EREN BİNGÖL </h4>
+                        <i> Developer </i>
+                    </div>
+                </div>
+                <p class="m-0"> Kafam işlerle çok yoğun olduğunda bir nefes almak için harika bir dükkan. </p>
+            </div>
+        </div>
+    </div>
+</div>
+

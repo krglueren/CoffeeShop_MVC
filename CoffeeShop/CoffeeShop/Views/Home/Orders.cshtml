@@ -1,0 +1,224 @@
+﻿@model List<CoffeeShop.DB.Orders>
+@{
+    ViewBag.Title = "Orders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<link href="~/Content/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+<link href="~/Content/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+<link href="~/Content/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+<link href="~/Content/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+<link href="~/Content/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
+
+<!-- Sayfa Başlığı -->
+
+
+<div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+    <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+        <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white"> Admin </h1>
+    </div>
+</div>
+
+<!-- Siparişler -->
+
+<div class="container-fluid py-5">
+
+    <a href="~/Home/AddCofee" class="btn btn-primary" style="; margin-bottom: 10%"> Yeni Kayıt Ekle + </a>
+
+    <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th> Müşteri Bilgileri </th>
+                <th>Adres</th>
+                <th>Sipariş Tarihi</th>
+                <th> Sepet Tutarı </th>
+                <th> Ürünler </th>
+                <th>  </th>
+                <th> </th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>@item.OrderCustomerFullName</td>
+                    <td>@item.OrderAddress</td>
+                    <td>@item.OrderDate</td>
+                    <td>@item.OrderTotalPrice</td>
+
+                    <td>
+                        @foreach (CoffeeShop.DB.coffees detail in ViewBag.list)
+                        {
+                            <ul>
+                                <li>    @detail.CofeeName </li>
+                            </ul>
+                         
+                        }
+                    </td>
+
+
+                </tr>
+            }
+
+
+
+        </tbody>
+
+    </table>
+
+
+</div>
+
+
+
+
+
+
+
+@section scripts {
+
+
+
+
+    <script src="~/Content/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/Content/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/Content/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="~/Content/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="~/Content/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/Content/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/Content/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="~/Content/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="~/Content/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Content/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="~/Content/datatables.net-scroller/js/datatables.scroller.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            var handleDataTableButtons = function () {
+                if ($("#datatable-buttons").length) {
+                    $("#datatable-buttons").DataTable({
+                        dom: "Bfrtip",
+                        buttons: [
+                            'excelHtml5',
+                            { extend: 'copy', text: 'Tabloyu Kopyala' }
+
+
+                        ],
+
+                        responsive: true,
+                        language:
+                        {
+                            "decimal": "",
+                            "emptyTable": "Tabloda gösterilecek veri bulunamadı.",
+                            "info": "Toplam  _TOTAL_ Adet Veri Gösteriliyor.",
+                            "infoEmpty": "Veri Bulunamadı.",
+                            "infoFiltered": "(Toplam _MAX_ Adet Veriden Filtrelendi)",
+                            "infoPostFix": "",
+                            "thousands": ",",
+                            "lengthMenu": "Sayfa başı gösterilecek veri :  _MENU_ ",
+                            "loadingRecords": "Yükleniyor...",
+                            "processing": "",
+                            "search": "Ara:",
+                            "zeroRecords": "Aradığınız öğe bulunamadı.",
+                            "paginate": {
+                                "first": "İlk",
+                                "last": "Son",
+                                "next": "İleri",
+                                "previous": "Geri"
+
+                            },
+                            "aria": {
+                                "sortAscending": ": activate to sort column ascending",
+                                "sortDescending": ": activate to sort column descending"
+                            }
+                        }
+                    });
+                }
+            };
+
+            TableManageButtons = function () {
+                "use strict";
+                return {
+                    init: function () {
+                        handleDataTableButtons();
+                    }
+                };
+            }();
+
+            $('#datatable').dataTable();
+
+            $(document).ready(function () {
+                $('#datatable-language').dataTable({
+                    "language": {
+                        "decimal": "",
+                        "emptyTable": "Tabloda gösterilecek veri bulunamadı.",
+                        "info": "Toplam  _TOTAL_ veriden  _END_ adet  gösteriliyor",
+                        "infoEmpty": "Showing 0 to 0 of 0 entries",
+                        "infoFiltered": "(filtered from _MAX_ total entries)",
+                        "infoPostFix": "",
+                        "thousands": ",",
+                        "lengthMenu": "Sayfa başı gösterilecek veri :  _MENU_ ",
+                        "loadingRecords": "Loading...",
+                        "processing": "",
+                        "search": "Ara:",
+                        "zeroRecords": "Aradığınız öğe bulunamadı.",
+                        "paginate": {
+                            "first": "İlk",
+                            "last": "Son",
+                            "next": "İleri",
+                            "previous": "Geri"
+                        },
+                        "aria": {
+                            "sortAscending": ": activate to sort column ascending",
+                            "sortDescending": ": activate to sort column descending"
+                        }
+                    }
+                });
+            });
+
+            $('#datatable-keytable').DataTable({
+                keys: true
+            });
+
+            $('#datatable-responsive').DataTable();
+
+            $('#datatable-scroller').DataTable({
+                ajax: "js/datatables/json/scroller-demo.json",
+                deferRender: true,
+                scrollY: 380,
+                scrollCollapse: true,
+                scroller: true
+            });
+
+            $('#datatable-fixed-header').DataTable({
+                fixedHeader: true
+            });
+
+            var $datatable = $('#datatable-checkbox');
+
+            $datatable.dataTable({
+                'order': [[1, 'asc']],
+                'columnDefs': [
+                    { orderable: false, targets: [0] }
+                ]
+            });
+            $datatable.on('draw.dt', function () {
+                $('input').iCheck({
+                    checkboxClass: 'icheckbox_flat-green'
+                });
+            });
+
+            TableManageButtons.init();
+        });
+    </script>
+
+}
+
